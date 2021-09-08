@@ -427,3 +427,7 @@ p,pre {
         margin: .4em
     }
 }
+
+.text-center {
+    text-align: center;
+}

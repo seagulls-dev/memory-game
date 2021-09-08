@@ -1,16 +1,17 @@
 import React from 'react';
+import { withRouter } from "react-router-dom";
 
 const Header = props => {
 
-    const { restart, round } = props;
+    const { round } = props;
 
     return (
         <div>
             <h2>Round: {round}</h2>
-            <button className="button button--warning text-center" onClick={() => restart()} disabled={round === 0}>Restart</button>
+            <button className="button button--warning text-center" onClick={() => props.history.push("/game")} disabled={round === 0}>Restart</button>
         </div>
     )
 
 }
 
-export default Header
+export default withRouter(Header)
