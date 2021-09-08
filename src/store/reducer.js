@@ -1,11 +1,8 @@
-const initialState = {
-    a : ""
-}
+import { combineReducers } from 'redux'
+import memory from './memory'
 
-const Reducer = (initialState, action) => {
-    switch (action.type) {
+const rootReducer = combineReducers({
+    memory
+});
 
-    }
-}
-
-export default Reducer
+export default rootReducer;
