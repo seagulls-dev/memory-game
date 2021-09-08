@@ -1,28 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
-import Header from "./components/Header";
-import CardList from "./components/CardList";
+import Game from "./pages/Game";
+import Home from "./pages/Home";
 
-import {connect} from 'react-redux'
-import {flipCard} from "./store/action"
-import {restart} from "./store/action"
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
 function App(props) {
 
-    const { memory, flipCard, restart } = props;
-
     return (
-        <div>
-            <Header round={memory.round} restart={restart}/>
-            <CardList cards={memory.cards} flipCard={flipCard} />
-        </div>
+        <Router>
+            <div>
+
+                <Switch>
+                    <Route path="/game">
+                        <Game />
+                    </Route>
+                    <Route path="/">
+                        <Home />
+                    </Route>
+                </Switch>
+            </div>
+        </Router>
+
     );
 }
 
-const mapStateToProps = (state) => ({
-    memory: state.memory
-});
-
-
-
-export default connect(mapStateToProps, {flipCard, restart})(App);
+export default App;
